@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yume Café - Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body.login-page {
+      margin: 0;
+      font-family: 'Sawarabi Mincho', serif;
+      background: url('https://s3.voyapon.com/wp-content/uploads/2021/02/22200331/mangacafe_Lucia_16.jpg') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .login-container {
+      background-color: rgba(255, 248, 240, 0.95);
+      padding: 2rem 3rem;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+    }
+
+    .login-container h1 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: #5c3d2e;
+    }
+
+    .login-container input {
+      width: 100%;
+      padding: 0.75rem;
+      margin: 0.5rem 0;
+      border: 1px solid #d17b58;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    .login-container button {
+      background-color: #d17b58;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .login-container button:hover {
+      background-color: #b35f3f;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+      background-color: rgba(248, 225, 212, 0.9);
+      padding: 0.5rem;
+      font-size: 0.85rem;
+      font-family: 'Sawarabi Mincho', serif;
+    }
+
+    @media (max-width: 600px) {
+      .login-container h1 {
+        font-size: 1.5rem;
+      }
+
+      .login-container {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body class="login-page">
+  <div class="login-container">
+    <h1>Yume Café</h1>
+    <form onsubmit="return validateLogin()">
+      <input type="text" id="username" placeholder="Username" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <button type="submit">Login</button>
+    </form>
+  </div>
+
+  <footer>
+    <p>© 2025 Yume Café, Fort Bonifacio. All rights reserved.</p>
+    <p>Developed by Sean Nicolas C. Roque of TC08, IT0043 in FEU Institute of Technology. (FOR SCHOOL PURPOSES ONLY)</p>
+  </footer>
+
+  <script>
+    function validateLogin() {
+      const user = document.getElementById("username").value;
+      const pass = document.getElementById("password").value;
+      if (user === "jabespogi" && pass === "amazing") {
+        window.location.href = "index.html";
+        return false;
+      } else {
+        alert("Invalid credentials");
+        return false;
+      }
+    }
+  </script>
+</body>
+</html>
