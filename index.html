@@ -191,5 +191,49 @@
     <p>© 2025 Yume Café, Fort Bonifacio. All rights reserved.</p>
     <p>Developed by Sean Nicolas C. Roque of TC08, IT0043 in FEU Institute of Technology. (FOR SCHOOL PURPOSES ONLY)</p>
   </footer>
+<script>
+  const user = localStorage.getItem("loggedInUser");
+  if (!user) {
+    window.location.href = "login.html";
+  } else {
+    const container = document.createElement("div");
+    container.style.display = "flex";
+    container.style.justifyContent = "center";
+    container.style.alignItems = "center";
+    container.style.gap = "1rem";
+    container.style.backgroundColor = "#f8e1d4";
+    container.style.padding = "0.75rem 1rem";
+    container.style.fontFamily = "'Sawarabi Mincho', serif";
+    container.style.fontSize = "1rem";
+    container.style.color = "#5c3d2e";
+    container.style.borderBottom = "1px solid #e0c2b0";
+
+    const info = document.createElement("span");
+    info.textContent = `Welcome, ${user}`;
+    info.style.fontWeight = "bold";
+
+    const btn = document.createElement("button");
+    btn.textContent = "Sign Out";
+    btn.style.backgroundColor = "#d17b58";
+    btn.style.color = "white";
+    btn.style.border = "none";
+    btn.style.padding = "0.5rem 1rem";
+    btn.style.borderRadius = "6px";
+    btn.style.cursor = "pointer";
+    btn.style.fontSize = "0.95rem";
+    btn.style.transition = "background-color 0.3s ease";
+    btn.onmouseover = () => btn.style.backgroundColor = "#b35f3f";
+    btn.onmouseout = () => btn.style.backgroundColor = "#d17b58";
+    btn.onclick = function () {
+      localStorage.removeItem("loggedInUser");
+      window.location.href = "login.html";
+    };
+
+    container.appendChild(info);
+    container.appendChild(btn);
+    document.body.insertBefore(container, document.body.firstChild);
+  }
+</script>
+
 </body>
 </html>
